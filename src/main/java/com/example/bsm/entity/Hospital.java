@@ -1,28 +1,26 @@
 package com.example.bsm.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Hospital {
 
     @Id
-    private int hospitalId;
-    private String hospitalName;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    public int getHospitalId() {
-        return hospitalId;
-    }
+   private int hospitalId;
+   private String hospitalName;
 
-    public void setHospitalId(int hospitalId) {
-        this.hospitalId = hospitalId;
-    }
-
-    public String getHospitalName() {
-        return hospitalName;
-    }
-
-    public void setHospitalName(String hospitalName) {
-        this.hospitalName = hospitalName;
-    }
+    @OneToMany
+    private List<Admin> admin;
 }
