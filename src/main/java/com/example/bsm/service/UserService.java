@@ -1,12 +1,19 @@
 package com.example.bsm.service;
 
 import com.example.bsm.entity.User;
+import com.example.bsm.request.UserRequest;
+import com.example.bsm.response.AdminResponse;
+import com.example.bsm.response.UserResponse;
 
 public interface UserService {
 
-    User registerUser(User user);
+    UserResponse registerUser(UserRequest userRequest);
 
-    User findUserById(int userId);
+    UserResponse findUserById(int userId);
 
-    User updateUser(User user);
+    UserResponse updateUser(UserRequest userRequest,int userId);
+
+    UserResponse promoteToAdmin(int userId);
+
+    AdminResponse registerAdmin(UserRequest userRequest);
 }
