@@ -2,10 +2,8 @@ package com.example.bsm.entity;
 
 import com.example.bsm.enums.BloodGroup;
 import com.example.bsm.enums.Gender;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.bsm.enums.Role;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,7 +28,11 @@ public class User {
    private Gender gender;
    private String availableCity;
    private boolean verified;
+   private String lastModifiedAt;
+   private String lastCreatedAt;
+   private Role role;
 
-
+   @OneToOne(mappedBy = "user",fetch = FetchType.EAGER)
+  private Admin admin;
 
 }
