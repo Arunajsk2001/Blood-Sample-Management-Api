@@ -31,3 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
+get
+
+.gitattributes
+.mvn/
+mvnw
+mvnw.cmd
+pom.xml
